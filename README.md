@@ -10,3 +10,15 @@ For the purposes of the CallForCode submission, we are only able to address poin
 
 It is our plan to work out the cooler stuff as we go on and gather more data.
 
+
+## Installation
+
+You need ths plugin installed and activated on the WP backend that serves your api to have the app read aloud to you. 
+
+Download zip file
+Open your wordpress dashboard - the wp-admin page on most sites - and click upload.
+Install and Activate.
+
+2. you must also have a folder called audio-files in the plugin folder to hold the files created. I added that to the gitignore file so it wouldnt upload to github. 
+- in production I would create the folder -- but Im out of time...
+
