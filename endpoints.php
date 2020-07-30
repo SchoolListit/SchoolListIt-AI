@@ -28,7 +28,8 @@ add_action( 'rest_api_init', function () {
  * save file; return filepath
  */
 function watson_speak(\WP_REST_Request $request){
-    $key = \file_get_contents(plugin_dir_path( __FILE__ ) .'key.txt'); // in production this will be stored in a wp_options, but since I have not built the admin page yet this is a placeholder
+    $key = \file_get_contents(plugin_dir_path( __FILE__ ) .'keys.txt'); // in production this will be stored in a wp_options, but since I have not built the admin page yet this is a placeholder
+    $key = \str_replace('IBM_APIKEY=', '', $key);
     $params = $request->get_params();
     $text = $params['text'];
     
@@ -37,7 +38,7 @@ function watson_speak(\WP_REST_Request $request){
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, "{\"text\":\"$text\"}");
-    curl_setopt($ch, CURLOPT_USERPWD, 'apikey' . ':' . IBM_APIKEY);
+    curl_setopt($ch, CURLOPT_USERPWD, 'apikey' . ':' . $key);
   
     $headers = array();
     $headers[] = 'Content-Type: application/json';
@@ -51,7 +52,7 @@ function watson_speak(\WP_REST_Request $request){
       curl_close($ch);
       $filepath = schoollistit_save_audio($file);
       $response = array(
-        'curlResponse'=>$file,
+       // 'curlResponse'=>$file,
         'filepath'=>$filepath
       );
       return $response;
