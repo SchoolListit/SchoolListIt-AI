@@ -6,5 +6,7 @@ SchoolListIt and Watson integration will equip our platform in two ways:
 
 2. Learning from Analytics: if we have a good adoption rate, our platform will be gathering a 'fresh' set of data on how involved the extended family is with a child's education and how this can help. It is our hypothesis that equipping more involvement from grandparents and neighbors and friends will help in single family homes. 
 
-For the 'finished code' we are going to address point 1. and the other integrations will be left within our Roadmap. 
+For the purposes of the CallForCode submission, we are only able to address point one - integrating text to speech. 
+
+It is our plan to work out the cooler stuff as we go on and gather more data.
 
