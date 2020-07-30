@@ -17,10 +17,18 @@ add_action( 'rest_api_init', function () {
 
 
 /**
- * go out to watson and get speech for text
+ * Watson Speak 
+ * 
+ * the curl function that goes out for authentication and text-to-speech. 
+ * 
+ * NOTE: I did not secure this endpoint...because I am totally out of time for the submission, but I have an auth protocol
+ * which I use to secure the back and forth...will do it after. I figure there is little risk,
+ * I think my cloud account expires ina  few days...
+ * 
  * save file; return filepath
  */
 function watson_speak(\WP_REST_Request $request){
+    $key = \file_get_contents(plugin_dir_path( __FILE__ ) .'key.txt'); // in production this will be stored in a wp_options, but since I have not built the admin page yet this is a placeholder
     $params = $request->get_params();
     $text = $params['text'];
     
@@ -29,7 +37,7 @@ function watson_speak(\WP_REST_Request $request){
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_POST, 1);
     curl_setopt($ch, CURLOPT_POSTFIELDS, "{\"text\":\"$text\"}");
-    curl_setopt($ch, CURLOPT_USERPWD, 'apikey' . ':' . '2IccPOIl-GLU7U30VWEtNt893jAAHNO1GcDhbjcgYjq8');
+    curl_setopt($ch, CURLOPT_USERPWD, 'apikey' . ':' . IBM_APIKEY);
   
     $headers = array();
     $headers[] = 'Content-Type: application/json';
@@ -63,8 +71,5 @@ function schoollistit_save_audio($file){
     return $filepath;
     }
   }
-
-
-
  
 ?>

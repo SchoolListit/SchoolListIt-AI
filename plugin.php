@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: SchoolListIt AI: Integration with Watson Cloud Services
+ * Plugin Name: SchoolListIt AI
  * Plugin URI: http://SchooListIt.com/
- * Description: Reads text aloud to children
+ * Description: Integration with Watson AI Services. Reads aloud to children and does other cool stuff.
  * Author: megphillips91
  * Author URI: https://megphillips91.wordpress.com/
  * Version: 1.1.3
